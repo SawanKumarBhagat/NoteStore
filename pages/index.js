@@ -3,25 +3,22 @@ import { Inter } from "@next/font/google";
 import Header from "@/components/Header";
 import FolderList from "@/components/FolderList";
 import NotesList from "@/components/NotesList";
-import { fetchNotes } from "@/utils/fetchNotes";
-import Note from "@/components/Note";
-import reducer, { initialState } from "@/components/reducer";
 import { useEffect, useState } from "react";
-import jwt from "jsonwebtoken";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [user, setUser] = useState({ value: null });
-  // const [name, setName] = useState();
+  const router = useRouter()
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     if(token){
       setUser({value: token});
-      // console.log(user.value)
-      // const decoded = jwt.verify(token, 'process.env.SECRET');
-      // setName(decoded.name);
+    }
+    else{
+      router.push('/signin')
     }
   }, []);
 

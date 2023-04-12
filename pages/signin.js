@@ -1,4 +1,5 @@
 import { fetchSignIn } from "@/utils/fetchSignIn";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -24,78 +25,87 @@ function LogIn() {
   }
 
   return (
-    <div className="bg-[#f5f5f5] min-h-screen flex flex-col items-center">
-      <h1 className="font-semibold text-4xl m-16">
-        Note <span className="text-[#33aaff]">Store</span>
-      </h1>
-      <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center px-2">
-        <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-          <h1 className="mb-8 text-3xl text-center">Sign In</h1>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-wrap -mx-3 mb-6"
-          >
-            <div className="w-full md:w-full px-3 mb-6">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="Password"
-              >
-                Email address
-              </label>
-              <input
-                {...register("email")}
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                placeholder="Email"
-                type="email"
-                required
-              />
-            </div>
-            <div className="w-full md:w-full px-3 mb-6">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="Password"
-              >
-                Password
-              </label>
-              <input
-                {...register("password")}
-                type="password"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                placeholder="Password"
-                required
-              />
-              <span id="Message" className="text-red-500"></span>
-            </div>
-            <div className="w-full flex items-center justify-between px-3 mb-3 ">
-              <div>
-                <a href="#" className="text-[#33aaff] text-sm tracking-tight">
-                  Forgot password
-                </a>
+    <>
+      <Head>
+        <title>Note Store</title>
+      </Head>
+      <div className="bg-[#f5f5f5] min-h-screen flex flex-col items-center">
+        <h1 className="font-semibold text-4xl m-16">
+          Note <span className="text-[#33aaff]">Store</span>
+        </h1>
+        <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center px-2">
+          <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 className="mb-8 text-3xl text-center">Sign In</h1>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-wrap -mx-3 mb-6"
+            >
+              <div className="w-full md:w-full px-3 mb-6">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="Password"
+                >
+                  Email address
+                </label>
+                <input
+                  {...register("email")}
+                  className="block border border-grey-light w-full p-3 rounded mb-4"
+                  placeholder="Email"
+                  type="email"
+                  required
+                />
               </div>
-            </div>
-            <div className="w-full md:w-full px-3 mb-6">
-              <button
-                type="submit"
-                className="w-full text-center py-3 rounded bg-[#33aaff] text-white hover:bg-sky-700 focus:outline-none my-1"
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
-        </div>
+              <div className="w-full md:w-full px-3 mb-6">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="Password"
+                >
+                  Password
+                </label>
+                <input
+                  {...register("password")}
+                  type="password"
+                  className="block border border-grey-light w-full p-3 rounded mb-4"
+                  placeholder="Password"
+                  required
+                />
+                <span id="Message" className="text-red-500"></span>
+              </div>
+              <div className="w-full flex items-center justify-between px-3 mb-3 ">
+                <div>
+                  <a
+                    href="#"
+                    className="text-[#33aaff] text-sm tracking-tight"
+                    onClick={() => alert("Under Development!!!")}
+                  >
+                    Forgot password
+                  </a>
+                </div>
+              </div>
+              <div className="w-full md:w-full px-3 mb-6">
+                <button
+                  type="submit"
+                  className="w-full text-center py-3 rounded bg-[#33aaff] text-white hover:bg-sky-700 focus:outline-none my-1"
+                >
+                  Sign in
+                </button>
+              </div>
+            </form>
+          </div>
 
-        <div className="text-grey-dark mt-6">
-          Dont&apos;t have an account?
-          <Link
-            className="no-underline border-b border-blue text-blue"
-            href="/signup"
-          >
-            Sign Up
-          </Link>
-          .
+          <div className="text-grey-dark mt-6">
+            Dont&apos;t have an account?
+            <Link
+              className="no-underline border-b border-blue text-blue"
+              href="/signup"
+            >
+              Sign Up
+            </Link>
+            .
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

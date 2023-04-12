@@ -1,4 +1,5 @@
 import { fetchSignUp } from "@/utils/fetchSignUp";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -27,6 +28,10 @@ function SignUp() {
     }
   }
   return (
+    <>
+      <Head>
+        <title>Note Store</title>
+      </Head>
     <div className="bg-[#f5f5f5] min-h-screen flex flex-col items-center">
       <Link href="/">
         <h1 className="font-semibold text-4xl m-16">
@@ -108,6 +113,7 @@ function SignUp() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

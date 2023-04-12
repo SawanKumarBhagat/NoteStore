@@ -85,7 +85,7 @@ function LogIn() {
         </div>
 
         <div className="text-grey-dark mt-6">
-          <p>Dont't have an account?</p>
+          <p>Dont\'t have an account?</p>
           <Link
             className="no-underline border-b border-blue text-blue"
             href="/signup"

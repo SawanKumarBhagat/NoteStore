@@ -2,17 +2,17 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 
-function Header({ user, signout}) {
+function Header({ user, signout }) {
   const [name, setName] = useState();
   // console.log(user.value)
   useEffect(() => {
-    if(user.value){
-      const decoded = jwt.verify(user.value, 'process.env.SECRET');
+    if (user.value) {
+      const decoded = jwt.verify(user.value, "process.env.SECRET");
       setName(decoded.name);
-      console.log(name)
+      console.log(name);
     }
-  }, [user])
-  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <div className="sticky top-0 px-5 h-16 flex items-center justify-between mx-auto max-w-7xl z-20 border-b border-[#eee]">

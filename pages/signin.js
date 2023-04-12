@@ -85,13 +85,14 @@ function LogIn() {
         </div>
 
         <div className="text-grey-dark mt-6">
-          <p>Dont\'t have an account?</p>
+          Dont&apos;t have an account?
           <Link
             className="no-underline border-b border-blue text-blue"
             href="/signup"
           >
             Sign Up
           </Link>
+          .
         </div>
       </div>
     </div>

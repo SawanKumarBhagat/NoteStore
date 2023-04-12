@@ -10,7 +10,6 @@ import addNote from "@/pages/api/addNote";
 function NotesList({ user }) {
   const [notes, setNotes] = useState([]);
   const [note, setNote] = useState([]);
-  const [present, setPresent] = useState(false);
 
   useEffect(() => {
     fetchNotes().then((result) => {
@@ -20,6 +19,7 @@ function NotesList({ user }) {
     else setNote({title: '', body: ''})
     // if(notes.includes(note, 0)) setPresent(true);
     // notes.includes(note, 0) ? setPresent(true) : setPresent(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notes.length]);
 
   const handleSearch = (e) => {

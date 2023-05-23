@@ -4,12 +4,10 @@ import jwt from "jsonwebtoken";
 
 function Header({ user, signout }) {
   const [name, setName] = useState();
-  // console.log(user.value)
   useEffect(() => {
     if (user.value) {
       const decoded = jwt.verify(user.value, "process.env.SECRET");
       setName(decoded.name);
-      console.log(name);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);

@@ -15,8 +15,8 @@ function NotesList({ user }) {
     fetchNotes().then((result) => {
       setNotes(result);
     });
-    if(notes.length != 0) setNote(notes[0]);
-    else setNote({title: '', body: ''})
+    if (notes.length != 0) setNote(notes[0]);
+    else setNote({ title: "", body: "" });
     // if(notes.includes(note, 0)) setPresent(true);
     // notes.includes(note, 0) ? setPresent(true) : setPresent(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,10 +42,10 @@ function NotesList({ user }) {
         await fetchNotes().then((res) => setNotes(res));
         // setNote(notes[0]);
       } else {
-      const index = notes.findIndex((note) => _id === note._id);
-      await fetchDeleteNote(_id);
-      await fetchNotes().then((Notess) => setNotes(Notess));
-      // setNote(notes[0]);
+        const index = notes.findIndex((note) => _id === note._id);
+        await fetchDeleteNote(_id);
+        await fetchNotes().then((Notess) => setNotes(Notess));
+        // setNote(notes[0]);
       }
     }
   };
@@ -107,7 +107,12 @@ function NotesList({ user }) {
           ))}
         </div>
       </div>
-      <Note note={note} deleteNote={deleteNote} saveNote={saveNote} present={notes.some(data => data._id === note._id) ? true : false} />
+      <Note
+        note={note}
+        deleteNote={deleteNote}
+        saveNote={saveNote}
+        present={notes.some((data) => data._id === note._id) ? true : false}
+      />
     </div>
   );
 }
